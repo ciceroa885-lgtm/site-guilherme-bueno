@@ -37,16 +37,10 @@
 
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
 
-        /* ANIMATION EFFECTS (ORIGINAL FADE UP) */
+        /* ANIMATION EFFECTS */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes waveFloat {
@@ -60,7 +54,7 @@
         .animate-3 { animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0; }
         .animate-4 { animation: fadeInUp 0.8s ease-out 0.6s forwards; opacity: 0; }
 
-        /* HEADER / NAVBAR */
+        /* NAVBAR */
         header {
             position: sticky;
             top: 0;
@@ -97,11 +91,8 @@
             gap: 8px;
         }
 
-        /* HERO WITH BACKGROUND WAVE NETWORK */
-        .hero-wrap {
-            position: relative;
-            overflow: hidden;
-        }
+        /* HERO WRAPPER */
+        .hero-wrap { position: relative; overflow: hidden; }
 
         .wave-network {
             position: absolute;
@@ -248,7 +239,7 @@
         .feature-box strong { display: block; font-size: 0.98rem; margin-bottom: 0.2rem; }
         .feature-box small { opacity: 0.8; font-size: 0.8rem; }
 
-        /* SECTIONS GENERAL */
+        /* SECTIONS COMMON */
         section { padding: 4.5rem 5%; max-width: 1280px; margin: 0 auto; }
         .pill-badge {
             display: inline-block;
@@ -394,6 +385,53 @@
         .faq-accordion-item.active .faq-icon { transform: rotate(180deg); }
         .faq-icon { transition: transform 0.3s; }
 
+        /* LOCATION & MAP SECTION */
+        .location-card {
+            background: var(--surface-white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-top: 2rem;
+        }
+
+        .location-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .location-header h3 { font-size: 1.8rem; color: var(--primary-green); }
+        .location-address-box {
+            background: var(--cream-card);
+            border-radius: 16px;
+            padding: 1.2rem 1.6rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .location-address-box i { font-size: 1.6rem; color: var(--primary-green); }
+
+        .map-iframe-container {
+            width: 100%;
+            height: 380px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .map-iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         /* FOOTER */
         footer {
             background-color: var(--primary-green);
@@ -414,6 +452,7 @@
         .footer-col ul { list-style: none; }
         .footer-col li { margin-bottom: 0.6rem; }
         .footer-col a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 0.85rem; }
+        .footer-col a:hover { color: white; }
 
         /* WHATSAPP FLOAT ANIMATION */
         .whatsapp-float {
@@ -464,6 +503,7 @@
                 <a href="#inicio">Início</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#quando-buscar-ajuda">Quando buscar ajuda</a>
+                <a href="#localizacao">Localização</a>
                 <a href="#contato">Contato</a>
             </nav>
             <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20um%20atendimento%20com%20o%20Guilherme%20Bueno." target="_blank" class="btn-header">
@@ -473,7 +513,7 @@
     </header>
 
     <main>
-        <!-- HERO WRAPPER COM ONDAS DE FUNDO DO CÓDIGO FONTE ORIGINAL -->
+        <!-- HERO WRAPPER COM ONDAS DE FUNDO -->
         <div class="hero-wrap">
             <div class="wave-network" aria-hidden="true">
                 <svg viewBox="0 0 1440 760" preserveAspectRatio="none">
@@ -688,7 +728,7 @@
             </div>
         </section>
 
-        <!-- DÚVIDAS FREQUENTES (FAQ ACCORDION) -->
+        <!-- DÚVIDAS FREQUENTES (FAQ) -->
         <section>
             <div class="text-center"><span class="pill-badge">DÚVIDAS FREQUENTES</span></div>
             <h2 class="section-h2 serif" style="margin-top: 1rem;">Dúvidas sobre psicoterapia e avaliação</h2>
@@ -743,15 +783,48 @@
                 </div>
             </div>
         </section>
+
+        <!-- SEÇÃO DE LOCALIZAÇÃO DO CONSULTÓRIO COM O LINK DE ROTA DO GOOGLE MAPS -->
+        <section id="localizacao">
+            <div class="text-center"><span class="pill-badge">LOCALIZAÇÃO</span></div>
+            <h2 class="section-h2 serif" style="margin-top: 1rem;">Localização do consultório</h2>
+            <p class="section-p">Atendimento presencial no Setor Oeste, em Goiânia. Veja a localização pelo Google Maps.</p>
+
+            <div class="location-card">
+                <div class="location-header">
+                    <div>
+                        <h3 class="serif">Setor Oeste — Goiânia</h3>
+                        <p style="color: var(--text-muted); font-size:0.9rem;">Edifício Comercial Savasse</p>
+                    </div>
+                    <!-- LINK DIRETO PARA O GOOGLE MAPS COM AS COORDENADAS E ROTA -->
+                    <a href="https://www.google.com/maps/dir//-16.6879539,-49.264843/@-16.6879539,-49.2674179,17z/data=!4m8!1m5!3m4!2zMTbCsDQxJzE2LjYiUyA0OcKwMTUnNTMuNCJX!8m2!3d-16.6879539!4d-49.264843!4m1!3e0?hl=pt-BR&entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-green">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Abrir rota no Google Maps →
+                    </a>
+                </div>
+
+                <div class="location-address-box">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <strong>Endereço Completo:</strong><br>
+                        <span style="color: var(--text-muted); font-size: 0.92rem;">Av. República do Líbano esquina com Rua 7, Sala 105 - St. Oeste, Goiânia - GO, 74115-030 (Edifício Comercial Savasse)</span>
+                    </div>
+                </div>
+
+                <!-- MAPA INTERATIVO EMBUTIDO -->
+                <div class="map-iframe-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.5701831872396!2d-49.26741792398547!3d-16.68795388408226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef35be56910e5%3A0x6b758d4a6f2b4c80!2sAv.%20Rep%C3%BAblica%20do%20L%C3%ADbano%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER COM TODOS OS DADOS DO CARTÃO DE VISITA -->
     <footer id="contato">
         <div class="footer-grid">
             <div>
                 <h3 class="serif" style="font-size: 2rem; margin-bottom: 0.4rem;">Guilherme Bueno</h3>
-                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 1rem;">PSICÓLOGO CLÍNICO — CRP 09/22492</p>
-                <p style="font-size: 0.85rem; opacity: 0.8; max-width: 400px;">Atendimento psicológico e avaliação neuropsicológica para crianças, adolescentes e adultos — presencial em Goiânia e online.</p>
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 1rem;">PSICÓLOGO CLÍNICO & NEUROPSICÓLOGO — CRP 09/22492</p>
+                <p style="font-size: 0.85rem; opacity: 0.8; max-width: 400px; line-height: 1.6;">Atendimento psicológico e avaliação neuropsicológica para crianças, adolescentes e adultos — presencial em Goiânia e online.</p>
             </div>
             <div class="footer-col">
                 <h4>Navegação</h4>
@@ -760,20 +833,21 @@
                     <li><a href="#quando-buscar-ajuda">Quando buscar ajuda</a></li>
                     <li><a href="#como-funciona">Como funciona</a></li>
                     <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Contato</h4>
+                <h4>Contato & Endereço</h4>
                 <ul>
                     <li><a href="tel:62999132178">📞 (62) 99913-2178</a></li>
-                    <li><a href="https://wa.me/5562999132178" target="_blank">💬 WhatsApp</a></li>
+                    <li><a href="mailto:guilhermeba19@gmail.com">✉️ guilhermeba19@gmail.com</a></li>
+                    <li><a href="https://wa.me/5562999132178" target="_blank">💬 Falar pelo WhatsApp</a></li>
                     <li><a href="https://instagram.com/psi.guilhermebueno" target="_blank">📷 @psi.guilhermebueno</a></li>
-                    <li><a href="#">📍 Setor Oeste — Goiânia</a></li>
+                    <li><a href="https://www.google.com/maps/dir//-16.6879539,-49.264843/@-16.6879539,-49.2674179,17z/data=!4m8!1m5!3m4!2zMTbCsDQxJzE2LjYiUyA0OcKwMTUnNTMuNCJX!8m2!3d-16.6879539!4d-49.264843!4m1!3e0?hl=pt-BR&entry=ttu" target="_blank">📍 Av. República do Líbano esq. c/ Rua 7, Sala 105 - Ed. Savasse, St. Oeste</a></li>
                 </ul>
             </div>
         </div>
-        <div style="max-width: 1280px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.78rem; opacity: 0.65;">
+        <div style="max-width: 1280px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.78rem; opacity: 0.65; flex-wrap: wrap; gap: 1rem;">
             <p>As informações deste site não substituem uma avaliação profissional individualizada.</p>
             <p>© 2026 Guilherme Bueno. Todos os direitos reservados.</p>
         </div>
