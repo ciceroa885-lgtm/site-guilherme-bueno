@@ -23,6 +23,7 @@
             --text-dark: #1D2923;
             --text-muted: #5C6E65;
             --border-light: #E2E8E4;
+            --red-acerola: #C8372D; /* Vermelho Acerola solicitado */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,29 +38,31 @@
 
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
 
-        /* ANIMATION EFFECTS */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ANIMATION EFFECTS (Scroll & Fade Up) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @keyframes waveFloat {
             0% { transform: translateY(0px) scaleY(1); }
-            50% { transform: translateY(-10px) scaleY(1.03); }
+            50% { transform: translateY(-12px) scaleY(1.04); }
             100% { transform: translateY(0px) scaleY(1); }
         }
-
-        .animate-1 { animation: fadeInUp 0.8s ease-out forwards; }
-        .animate-2 { animation: fadeInUp 0.8s ease-out 0.2s forwards; opacity: 0; }
-        .animate-3 { animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0; }
-        .animate-4 { animation: fadeInUp 0.8s ease-out 0.6s forwards; opacity: 0; }
 
         /* NAVBAR */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: rgba(232, 239, 233, 0.94);
+            background-color: rgba(232, 239, 233, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(41, 67, 54, 0.08);
         }
@@ -67,14 +70,23 @@
         .navbar-inner {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 1rem 5%;
+            padding: 0.8rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo-box { text-decoration: none; display: flex; align-items: center; }
-        .logo-img { height: 48px; width: auto; object-fit: contain; }
+        
+        /* LOGO AUMENTADA */
+        .logo-img { 
+            height: 85px; 
+            max-height: 90px;
+            width: auto; 
+            object-fit: contain; 
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover { transform: scale(1.02); }
 
         .nav-links { display: flex; gap: 2.2rem; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.92rem; }
@@ -83,7 +95,7 @@
         .btn-header {
             background-color: var(--primary-green);
             color: white !important;
-            padding: 0.65rem 1.3rem;
+            padding: 0.75rem 1.4rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
@@ -91,7 +103,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            transition: background 0.3s;
         }
+        .btn-header:hover { background-color: var(--accent-green); }
 
         /* HERO WRAPPER */
         .hero-wrap { position: relative; overflow: hidden; }
@@ -104,13 +118,13 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.45;
+            opacity: 0.5;
         }
 
         .wave-network svg {
             width: 100%;
             height: 100%;
-            animation: waveFloat 8s ease-in-out infinite;
+            animation: waveFloat 9s ease-in-out infinite;
         }
 
         .hero {
@@ -125,9 +139,10 @@
             align-items: center;
         }
 
+        /* TAG EM VERMELHO ACEROLA */
         .location-tag {
-            color: var(--accent-green);
-            font-size: 0.78rem;
+            color: var(--red-acerola);
+            font-size: 0.82rem;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -175,7 +190,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            transition: background 0.3s;
         }
+        .btn-green:hover { background-color: var(--accent-green); }
 
         .btn-white {
             background-color: white;
@@ -189,7 +206,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            transition: border 0.3s;
         }
+        .btn-white:hover { border-color: var(--primary-green); }
 
         /* ARCH PHOTO FRAME */
         .photo-arch { position: relative; display: flex; justify-content: center; }
@@ -485,6 +504,7 @@
         @media (max-width: 900px) {
             .hero, .grid-2, .eval-layout, .steps-4, .about-green-shell, .faq-layout, .feature-bar, .footer-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.3rem; }
+            .logo-img { height: 60px; }
         }
     </style>
 </head>
@@ -494,7 +514,7 @@
     <header>
         <div class="navbar-inner">
             <a href="#inicio" class="logo-box">
-                <!-- LOGO OFICIAL SVG ADICIONADO AO GITHUB -->
+                <!-- LOGO AUMENTADA PARA 85PX -->
                 <img src="logo guilherme.svg" alt="Guilherme Bueno — Psicologia e Neuropsicologia" class="logo-img" onerror="this.onerror=null; this.src='logo%20guilherme.svg';">
             </a>
             <nav class="nav-links">
@@ -521,20 +541,20 @@
             </div>
 
             <section class="hero" id="inicio">
-                <div>
-                    <span class="location-tag animate-1"><i class="fa-solid fa-location-dot"></i> Goiânia e Região — Presencial & Online</span>
-                    <h1 class="serif animate-2">Psicólogo <em>clínico</em><br>e avaliação <em>neuropsicológica</em></h1>
-                    <div class="audience-tag animate-3">CRIANÇAS · ADOLESCENTES · ADULTOS</div>
-                    <p class="hero-desc animate-4">Escuta acolhedora e um olhar cuidadoso para a história, o comportamento, a aprendizagem e o desenvolvimento de cada pessoa.</p>
-                    <div class="hero-buttons animate-4">
+                <div class="reveal">
+                    <!-- NOME EM VERMELHO ACEROLA -->
+                    <span class="location-tag"><i class="fa-solid fa-location-dot"></i> Goiânia e Região — Presencial & Online</span>
+                    <h1 class="serif">Psicólogo <em>clínico</em><br>e avaliação <em>neuropsicológica</em></h1>
+                    <div class="audience-tag">CRIANÇAS · ADOLESCENTES · ADULTOS</div>
+                    <p class="hero-desc">Escuta acolhedora e um olhar cuidadoso para a história, o comportamento, a aprendizagem e o desenvolvimento de cada pessoa.</p>
+                    <div class="hero-buttons">
                         <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20um%20atendimento%20com%20o%20Guilherme%20Bueno." target="_blank" class="btn-green">📅 Agendar atendimento</a>
                         <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20falar%20sobre%20atendimento%20com%20o%20Guilherme%20Bueno." target="_blank" class="btn-white">💬 Falar pelo WhatsApp</a>
                     </div>
                 </div>
                 
-                <div class="photo-arch animate-2">
+                <div class="photo-arch reveal">
                     <div class="arch-frame">
-                        <!-- IMAGEM DO GUILHERME SALVA NO GITHUB (guilherme.webp.webp) -->
                         <img src="guilherme.webp.webp" alt="Guilherme Bueno Psicólogo" onerror="this.onerror=null; this.src='guilherme.webp';">
                     </div>
                     <div class="badge-crp">
@@ -549,7 +569,7 @@
         </div>
 
         <!-- FEATURE BAR -->
-        <div class="feature-bar">
+        <div class="feature-bar reveal">
             <div class="feature-box">
                 <strong>Psicologia clínica</strong>
                 <small>Crianças, adolescentes e adultos</small>
@@ -569,13 +589,13 @@
         </div>
 
         <!-- QUANDO BUSCAR AJUDA -->
-        <section id="quando-buscar-ajuda">
+        <section id="quando-buscar-ajuda" class="reveal">
             <div class="text-center"><span class="pill-badge">QUANDO BUSCAR AJUDA?</span></div>
             <h2 class="section-h2 serif">Algo não está bem.<br>Você consegue identificar o quê?</h2>
             <p class="section-p">Alguns sinais indicam que pode ser hora de buscar apoio — seja uma avaliação neuropsicológica para entender atenção, memória, aprendizagem e comportamento, seja um espaço de psicoterapia para elaborar o que você sente.</p>
             
             <div class="grid-2">
-                <div class="card-white">
+                <div class="card-white reveal">
                     <h3 class="serif">Avaliação Neuropsicológica</h3>
                     <p style="color:var(--text-muted); font-size:0.9rem;">Você, seu filho ou alguém da sua família apresenta alguns destes sinais?</p>
                     <ul>
@@ -589,7 +609,7 @@
                     <a href="https://wa.me/5562999132178" target="_blank" class="btn-white">Quero entender o que está acontecendo →</a>
                 </div>
 
-                <div class="card-white">
+                <div class="card-white reveal">
                     <h3 class="serif">Psicoterapia</h3>
                     <p style="color:var(--text-muted); font-size:0.9rem;">Você sente que algo não está bem, mas não sabe nomear?</p>
                     <ul>
@@ -606,7 +626,7 @@
         </section>
 
         <!-- O QUE A AVALIAÇÃO AJUDA -->
-        <section>
+        <section class="reveal">
             <div class="text-center"><span class="pill-badge">AVALIAÇÃO NEUROPSICOLÓGICA</span></div>
             <div class="eval-layout" style="margin-top: 1.5rem;">
                 <div class="eval-cream-card">
@@ -614,7 +634,7 @@
                     <p>Cada pessoa chega com uma história diferente. A avaliação mapeia com precisão o que está acontecendo — e indica o melhor caminho a seguir.</p>
                 </div>
                 <div class="eval-right-stack">
-                    <div class="eval-subcard">
+                    <div class="eval-subcard reveal">
                         <h3>👧 Em crianças e adolescentes</h3>
                         <ul>
                             <li>Dificuldades de aprendizagem e leitura</li>
@@ -624,7 +644,7 @@
                             <li>Suspeita de TDAH, TEA ou dislexia</li>
                         </ul>
                     </div>
-                    <div class="eval-subcard">
+                    <div class="eval-subcard reveal">
                         <h3>🧑 Em adultos</h3>
                         <ul>
                             <li>Memória e lapsos frequentes</li>
@@ -634,7 +654,7 @@
                             <li>Queda no desempenho profissional</li>
                         </ul>
                     </div>
-                    <div class="eval-subcard">
+                    <div class="eval-subcard reveal">
                         <h3>🔍 Suspeitas diagnósticas</h3>
                         <ul>
                             <li>TDAH (Transtorno de Déficit de Atenção)</li>
@@ -649,28 +669,28 @@
         </section>
 
         <!-- COMO FUNCIONA -->
-        <section id="como-funciona">
+        <section id="como-funciona" class="reveal">
             <div class="text-center"><span class="pill-badge">COMO FUNCIONA</span></div>
             <h2 class="section-h2 serif" style="margin-top:1rem;">Como funciona a avaliação neuropsicológica</h2>
             <p class="section-p">Um processo claro, humano e individualizado — do primeiro contato até a devolutiva.</p>
             
             <div class="steps-4">
-                <div class="step-box">
+                <div class="step-box reveal">
                     <div class="step-num">01</div>
                     <h3 class="serif">Conversa inicial</h3>
                     <p>Antes de qualquer teste, há uma escuta. Entendemos o histórico, as queixas e o que está preocupando — sem julgamentos e com total sigilo.</p>
                 </div>
-                <div class="step-box">
+                <div class="step-box reveal">
                     <div class="step-num">02</div>
                     <h3 class="serif">Sessões de avaliação</h3>
                     <p>Aplicação de testes neuropsicológicos validados, em ambiente acolhedor. O número de sessões varia conforme a demanda — geralmente entre 8 e 10 encontros.</p>
                 </div>
-                <div class="step-box">
+                <div class="step-box reveal">
                     <div class="step-num">03</div>
                     <h3 class="serif">Análise e laudo</h3>
                     <p>Os resultados são analisados com rigor técnico e compilados em um laudo detalhado — com análise dos achados, perfil cognitivo e orientações concretas.</p>
                 </div>
-                <div class="step-box">
+                <div class="step-box reveal">
                     <div class="step-num">04</div>
                     <h3 class="serif">Devolutiva humanizada</h3>
                     <p>Reunião dedicada para explicar tudo com clareza: o que os resultados significam, o que fazer a partir daqui e quais caminhos considerar.</p>
@@ -683,7 +703,7 @@
         </section>
 
         <!-- SOBRE -->
-        <section id="sobre">
+        <section id="sobre" class="reveal">
             <div class="text-center"><span class="pill-badge">SOBRE</span></div>
             <h2 class="section-h2 serif" style="margin-top: 1rem; margin-bottom: 2rem;">Sobre Guilherme Bueno</h2>
             
@@ -728,7 +748,7 @@
         </section>
 
         <!-- DÚVIDAS FREQUENTES (FAQ) -->
-        <section>
+        <section class="reveal">
             <div class="text-center"><span class="pill-badge">DÚVIDAS FREQUENTES</span></div>
             <h2 class="section-h2 serif" style="margin-top: 1rem;">Dúvidas sobre psicoterapia e avaliação</h2>
             <p class="section-p">Algumas dúvidas ajudam a entender melhor as diferenças entre psicoterapia, avaliação neuropsicológica e o caminho mais adequado para cada demanda.</p>
@@ -783,8 +803,8 @@
             </div>
         </section>
 
-        <!-- SEÇÃO DE LOCALIZAÇÃO DO CONSULTÓRIO COM O LINK DE ROTA DO GOOGLE MAPS -->
-        <section id="localizacao">
+        <!-- SEÇÃO DE LOCALIZAÇÃO DO CONSULTÓRIO -->
+        <section id="localizacao" class="reveal">
             <div class="text-center"><span class="pill-badge">LOCALIZAÇÃO</span></div>
             <h2 class="section-h2 serif" style="margin-top: 1rem;">Localização do consultório</h2>
             <p class="section-p">Atendimento presencial no Setor Oeste, em Goiânia. Veja a localização pelo Google Maps.</p>
@@ -795,21 +815,19 @@
                         <h3 class="serif">Setor Oeste — Goiânia</h3>
                         <p style="color: var(--text-muted); font-size:0.9rem;">Edifício Comercial Savasse</p>
                     </div>
-                    <!-- LINK DIRETO PARA O GOOGLE MAPS -->
                     <a href="https://www.google.com/maps/dir//-16.6879539,-49.264843/@-16.6879539,-49.2674179,17z/data=!4m8!1m5!3m4!2zMTbCsDQxJzE2LjYiUyA0OcKwMTUnNTMuNCJX!8m2!3d-16.6879539!4d-49.264843!4m1!3e0?hl=pt-BR&entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-green">
                         <i class="fa-solid fa-diamond-turn-right"></i> Abrir rota no Google Maps →
                     </a>
                 </div>
 
                 <div class="location-address-box">
-                    <i class="fa-solid fa-location-dot"></i>
+                    <i class="fa-solid fa-location-dot" style="color: var(--red-acerola);"></i>
                     <div>
                         <strong>Endereço Completo:</strong><br>
                         <span style="color: var(--text-muted); font-size: 0.92rem;">Av. República do Líbano esquina com Rua 7, Sala 105 - St. Oeste, Goiânia - GO, 74115-030 (Edifício Comercial Savasse)</span>
                     </div>
                 </div>
 
-                <!-- MAPA INTERATIVO EMBUTIDO -->
                 <div class="map-iframe-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.5701831872396!2d-49.26741792398547!3d-16.68795388408226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef35be56910e5%3A0x6b758d4a6f2b4c80!2sAv.%20Rep%C3%BAblica%20do%20L%C3%ADbano%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -817,7 +835,7 @@
         </section>
     </main>
 
-    <!-- FOOTER COM TODOS OS DADOS DO CARTÃO DE VISITA -->
+    <!-- FOOTER -->
     <footer id="contato">
         <div class="footer-grid">
             <div>
@@ -857,12 +875,33 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- JAVASCRIPT DOS EFEITOS -->
+    <!-- JAVASCRIPT DOS EFEITOS E ANIMAÇÕES AO ROLAR (SCROLL REVEAL) -->
     <script>
+        // Funcao para FAQ
         function toggleFaq(element) {
             const item = element.parentElement;
             item.classList.toggle('active');
         }
+
+        // Script de Animação ao rolar a página (Fade Up & Slide)
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
