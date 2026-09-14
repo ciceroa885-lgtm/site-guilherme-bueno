@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guilherme Bueno — Psicólogo Clínico e Avaliação Neuropsicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #F4F6F4;
+            --surface-card: #FFFFFF;
+            --primary-green: #2F5243;
+            --accent-green: #3A6351;
+            --light-green: #E8EFEA;
+            --text-main: #1C2826;
+            --text-muted: #5A6B65;
+            --gold-accent: #C5A059;
+            --border-color: #DDE5E0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: transparent;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary-green);
+        }
+
+        .logo-text h1 { font-size: 1.4rem; line-height: 1.1; }
+        .logo-text span { font-size: 0.75rem; text-transform: uppercase; tracking: 1px; color: var(--text-muted); }
+
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.95rem; }
+
+        .btn-header {
+            background-color: var(--primary-green);
+            color: #FFF;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* HERO SECTION */
+        .hero-container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .tag-location {
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-left h2 {
+            font-size: 3.2rem;
+            color: var(--primary-green);
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 520px;
+        }
+
+        .hero-buttons { display: flex; gap: 1rem; margin-bottom: 3rem; }
+        
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 0.9rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 0.9rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero-right { position: relative; display: flex; justify-content: center; }
+
+        .arch-image {
+            width: 320px;
+            height: 420px;
+            background-color: var(--accent-green);
+            border-radius: 160px 160px 20px 20px;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid #FFF;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .arch-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        .crp-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -10px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        /* HIGHLIGHT CARDS BAR */
+        .features-bar {
+            background-color: var(--primary-green);
+            color: white;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1180px;
+            margin: -1rem auto 4rem auto;
+        }
+
+        .feature-item h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+        .feature-item p { font-size: 0.8rem; opacity: 0.8; }
+
+        /* SECTIONS GENERAL */
+        section { padding: 4rem 5%; max-width: 1280px; margin: 0 auto; }
+        .section-tag { text-align: center; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-green); margin-bottom: 0.5rem; }
+        .section-title { text-align: center; font-size: 2.4rem; color: var(--primary-green); margin-bottom: 1rem; }
+        .section-desc { text-align: center; color: var(--text-muted); max-width: 650px; margin: 0 auto 3rem auto; }
+
+        /* COMPARISON CARDS */
+        .cards-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .card {
+            background: var(--surface-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .card h3 { font-size: 1.8rem; color: var(--primary-green); margin-bottom: 1rem; }
+        .card-list { list-style: none; margin: 1.5rem 0; }
+        .card-list li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; color: var(--text-muted); font-size: 0.95rem; }
+        .card-list li::before { content: "•"; color: var(--accent-green); font-size: 1.5rem; position: absolute; left: 0; top: -4px; }
+
+        /* STEPS SECTION */
+        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .step-card {
+            background: var(--primary-green);
+            color: white;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+        .step-num { font-size: 0.9rem; opacity: 0.6; font-weight: 700; margin-bottom: 1rem; }
+        .step-card h4 { font-size: 1.2rem; margin-bottom: 0.8rem; }
+        .step-card p { font-size: 0.85rem; opacity: 0.85; line-height: 1.5; }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 4rem 5% 2rem 5%;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .footer-links h4 { font-size: 1rem; margin-bottom: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            text-decoration: none;
+            font-size: 30px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 900px) {
+            .hero-container, .cards-grid-2, .steps-grid, .features-bar, .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-text">
+                <h1 class="serif-font">Guilherme Bueno</h1>
+                <span>Psicólogo & Neuropsicólogo</span>
+            </div>
+        </a>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#quando-buscar">Quando buscar ajuda</a>
+            <a href="#contato">Contato</a>
+            <a href="https://wa.me/5562999132178" target="_blank" class="btn-header">📅 Agendar avaliação</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-container" id="inicio">
+        <div class="hero-left">
+            <div class="tag-location">📍 Goiânia e Região — Presencial & Online</div>
+            <h2>Psicólogo clínico e avaliação neuropsicológica</h2>
+            <div class="hero-subtitle">Crianças · Adolescentes · Adultos</div>
+            <p class="hero-desc">Escuta acolhedora e um olhar cuidadoso para a história, o comportamento, a aprendizagem e o desenvolvimento de cada pessoa.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5562999132178" target="_blank" class="btn-primary">📅 Agendar atendimento</a>
+                <a href="https://wa.me/5562999132178" target="_blank" class="btn-secondary">💬 Falar pelo WhatsApp</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="arch-image">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Guilherme Bueno">
+            </div>
+            <div class="crp-badge">
+                <strong>CRP 09/22492</strong><br>
+                <small>Registro ativo</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT BAR -->
+    <div class="features-bar">
+        <div class="feature-item">
+            <h4>Psicologia Clínica</h4>
+            <p>Crianças, adolescentes e adultos</p>
+        </div>
+        <div class="feature-item">
+            <h4>Neuropsicologia</h4>
+            <p>Avaliação com laudo técnico</p>
+        </div>
+        <div class="feature-item">
+            <h4>18 anos como professor</h4>
+            <p>Formação e atuação acadêmica</p>
+        </div>
+        <div class="feature-item">
+            <h4>Atendimento humanizado</h4>
+            <p>Escuta ativa e olhar cuidadoso</p>
+        </div>
+    </div>
+
+    <!-- QUANDO BUSCAR AJUDA -->
+    <section id="quando-buscar">
+        <div class="section-tag">Quando buscar ajuda?</div>
+        <h2 class="section-title">Algo não está bem. Você consegue identificar o quê?</h2>
+        <p class="section-desc">Alguns sinais indicam que pode ser hora de buscar apoio — seja uma avaliação neuropsicológica para entender atenção, memória e comportamento, seja a psicoterapia.</p>
+        
+        <div class="cards-grid-2">
+            <div class="card">
+                <h3>Avaliação Neuropsicológica</h3>
+                <p>Você, seu filho ou alguém da família apresenta estes sinais?</p>
+                <ul class="card-list">
+                    <li>Dificuldade de manter atenção e foco</li>
+                    <li>Suspeita de TDAH ou TEA/autismo</li>
+                    <li>Dificuldades de aprendizagem, leitura ou escrita</li>
+                    <li>Esquecimentos frequentes e desorganização</li>
+                    <li>Comportamento impulsivo ou desregulado</li>
+                </ul>
+                <a href="https://wa.me/5562999132178" target="_blank" class="btn-secondary" style="display:inline-block; margin-top:1rem;">Quero entender o que está acontecendo →</a>
+            </div>
+            <div class="card">
+                <h3>Psicoterapia</h3>
+                <p>Você sente que algo não está bem, mas não sabe nomear?</p>
+                <ul class="card-list">
+                    <li>Ansiedade ou preocupação constante</li>
+                    <li>Tristeza ou desânimo sem causa clara</li>
+                    <li>Dificuldade nos relacionamentos</li>
+                    <li>Sensação de sobrecarga emocional</li>
+                    <li>Padrões que se repetem e você não entende por quê</li>
+                </ul>
+                <a href="https://wa.me/5562999132178" target="_blank" class="btn-secondary" style="display:inline-block; margin-top:1rem;">Quero um espaço para falar sobre isso →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section>
+        <div class="section-tag">Como funciona</div>
+        <h2 class="section-title">Como funciona a avaliação neuropsicológica</h2>
+        <p class="section-desc">Um processo claro, humano e individualizado — do primeiro contato até a devolutiva.</p>
+        
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <h4>Conversa inicial</h4>
+                <p>Entendemos o histórico, as queixas e o que está preocupando — com total sigilo.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <h4>Sessões de avaliação</h4>
+                <p>Aplicação de testes neuropsicológicos validados em ambiente acolhedor.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <h4>Análise e laudo</h4>
+                <p>Os resultados são analisados e compilados em um laudo técnico detalhado.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">04</div>
+                <h4>Devolutiva humanizada</h4>
+                <p>Reunião dedicada para explicar tudo com clareza e definir os próximos passos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3 class="serif-font">Guilherme Bueno</h3>
+                <p style="opacity: 0.8; margin-bottom: 1rem;">PSICÓLOGO CLÍNICO — CRP 09/22492</p>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Atendimento psicológico e avaliação neuropsicológica para crianças, adolescentes e adultos — presencial em Goiânia e online.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre mim</a></li>
+                    <li><a href="#quando-buscar">Quando buscar ajuda</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="tel:62999132178">📞 (62) 99913-2178</a></li>
+                    <li><a href="https://wa.me/5562999132178" target="_blank">💬 WhatsApp</a></li>
+                    <li><a href="https://instagram.com/psi.guilhermebueno" target="_blank">📷 @psi.guilhermebueno</a></li>
+                    <li><a href="#">📍 Setor Oeste — Goiânia</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Guilherme Bueno. Todos os direitos reservados.</p>
+            <p>Goiânia - GO</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5562999132178" class="whatsapp-float" target="_blank">💬</a>
+
+</body>
+</html>
