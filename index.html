@@ -6,7 +6,17 @@
     <title>Guilherme Bueno | Psicólogo em Goiânia</title>
     <meta name="description" content="Psicólogo clínico em Goiânia para psicoterapia e avaliação neuropsicológica de crianças, adolescentes e adultos."/>
     
-    <!-- Google Tag (gtag.js) -->
+    <!-- Google Tag (gtag.js) - Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NHVGW6C6NEJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NHVGW6C6NEJ');
+    </script>
+
+    <!-- Google Tag (gtag.js) - Google Ads -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17988343564"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -394,6 +404,174 @@
             font-size: 0.85rem;
         }
 
+        /* LOCATION MAP SECTION */
+        .location-section {
+            padding: 4rem 5% 2rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            background: var(--surface-white);
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .location-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+            padding: 0.5rem 0.5rem 0 0.5rem;
+        }
+
+        .location-header h2 {
+            font-size: 1.6rem;
+            color: var(--primary-green);
+            margin-bottom: 0.3rem;
+        }
+
+        .location-header p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .btn-route {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 0.65rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-route:hover {
+            background-color: var(--accent-green);
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 380px;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* SITE FOOTER */
+        .site-footer-bar {
+            text-align: center;
+            padding: 1.5rem 5% 1rem 5%;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-dark {
+            background-color: var(--primary-green);
+            color: #E2E8E4;
+            padding: 4.5rem 5% 2rem 5%;
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.3fr 0.8fr 1.1fr;
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-col .crp-tag {
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .footer-col p {
+            font-size: 0.88rem;
+            opacity: 0.8;
+            line-height: 1.6;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.05rem;
+            color: #FFFFFF;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-links a {
+            color: #E2E8E4;
+            text-decoration: none;
+            font-size: 0.88rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-contact-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-contact-item strong {
+            display: block;
+            font-size: 0.82rem;
+            opacity: 0.9;
+            margin-bottom: 0.2rem;
+        }
+
+        .footer-contact-item a, .footer-contact-item span {
+            color: #E2E8E4;
+            text-decoration: none;
+            font-size: 0.88rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom-bar {
+            max-width: 1180px;
+            margin: 3rem auto 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
         /* WHATSAPP FLOAT ANIMATION */
         .whatsapp-float {
             position: fixed;
@@ -421,10 +599,12 @@
         }
 
         @media (max-width: 900px) {
-            .hero, .grid-2, .eval-layout, .steps-4, .about-green-shell, .feature-bar { grid-template-columns: 1fr; }
+            .hero, .grid-2, .eval-layout, .steps-4, .about-green-shell, .feature-bar, .footer-inner { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.3rem; }
             .logo-img { height: 60px; }
             .nav-links { display: none; }
+            .location-header { flex-direction: column; gap: 1rem; }
+            .footer-bottom-bar { flex-direction: column; gap: 0.8rem; text-align: center; }
         }
     </style>
 </head>
@@ -583,7 +763,90 @@
                 </div>
             </div>
         </section>
+
+        <!-- LOCALIZAÇÃO DO CONSULTÓRIO -->
+        <div class="location-section reveal active" id="contato">
+            <div class="location-card">
+                <div class="location-header">
+                    <div>
+                        <h2>Localização do consultório</h2>
+                        <p>Atendimento presencial no Setor Oeste, em Goiânia. Veja a localização pelo Google Maps.</p>
+                    </div>
+                    <a href="https://maps.google.com/?q=Psicólogo+e+Neuropsicólogo+Guilherme+Bueno+Setor+Oeste+Goiânia" target="_blank" class="btn-route">Abrir rota →</a>
+                </div>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.6429388126837!2d-49.2711!3d-16.6852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef3571165f121%3A0x6b7b2512f3e8f80!2sSetor%20Oeste%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer-bar">
+            Guilherme Bueno — Psicólogo Clínico — CRP 09/22492
+        </div>
     </main>
+
+    <!-- FOOTER ESCURO -->
+    <footer class="footer-dark">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>Guilherme Bueno</h3>
+                <span class="crp-tag">PSICÓLOGO CLÍNICO — CRP 09/22492</span>
+                <p>Atendimento psicológico e avaliação neuropsicológica para crianças, adolescentes e adultos — presencial em Goiânia e online.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#quando-buscar-ajuda">Quando buscar ajuda</a></li>
+                    <li><a href="#como-funciona">Como funciona</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#duvidas">Dúvidas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+
+                <h4 style="margin-top: 1.8rem;">Políticas</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Política de Cookies</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <div class="footer-contact-item">
+                    <strong>Telefone</strong>
+                    <a href="tel:5562999132178">(62) 99913-2178</a>
+                </div>
+
+                <div class="footer-contact-item">
+                    <strong>WhatsApp</strong>
+                    <a href="https://wa.me/5562999132178" onclick="return gtag_report_conversion('https://wa.me/5562999132178');" target="_blank"><i class="fa-brands fa-whatsapp"></i> Falar pelo WhatsApp</a>
+                </div>
+
+                <div class="footer-contact-item">
+                    <strong>Instagram</strong>
+                    <a href="https://instagram.com/psic.guilhermebueno" target="_blank">@psic.guilhermebueno</a>
+                </div>
+
+                <div class="footer-contact-item">
+                    <strong>Atendimento presencial</strong>
+                    <span>Setor Oeste — Goiânia</span>
+                </div>
+
+                <div class="footer-contact-item">
+                    <strong>Atendimento online</strong>
+                    <span>Conforme a demanda de cada caso</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div>As informações deste site não substituem uma avaliação profissional individualizada.</div>
+            <div>© 2026 Guilherme Bueno. Todos os direitos reservados.</div>
+        </div>
+    </footer>
 
     <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20psicólogo%20Guilherme." onclick="return gtag_report_conversion('https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20psicólogo%20Guilherme.');" class="whatsapp-float" target="_blank" aria-label="Falar no WhatsApp">
