@@ -54,6 +54,7 @@
             --surface-white: #FFFFFF;
             --primary-green: #294336;
             --accent-green: #375746;
+            --card-green: #405D4D;
             --sage-pill: #DCE5E0;
             --cream-card: #F9F8F3;
             --text-dark: #1D2923;
@@ -329,43 +330,102 @@
         .card-white ul li { margin-bottom: 0.8rem; padding-left: 1.4rem; position: relative; color: var(--text-dark); font-size: 0.92rem; }
         .card-white ul li::before { content: "•"; color: var(--accent-green); font-size: 1.4rem; position: absolute; left: 0; top: -4px; }
 
-        /* EVALUATION SECTION */
-        .eval-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem; }
+        /* EVALUATION SECTION (FOTO 1) */
+        .eval-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 1.8rem; }
+        
         .eval-cream-card {
             background-color: var(--cream-card);
             border-radius: 24px;
-            padding: 3rem 2.2rem;
+            padding: 3.5rem 2.5rem;
             border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
-        .eval-cream-card h2 { font-size: 2.2rem; color: var(--primary-green); margin-bottom: 1.2rem; }
-        .eval-cream-card p { color: var(--text-muted); font-size: 0.95rem; }
+        .eval-cream-card h2 { font-size: 2.3rem; color: var(--primary-green); margin-bottom: 1.5rem; line-height: 1.18; }
+        .eval-cream-card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; z-index: 1; }
+
+        .brain-bg-icon {
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            font-size: 180px;
+            color: rgba(41, 67, 54, 0.04);
+            pointer-events: none;
+        }
 
         .eval-right-stack { display: flex; flex-direction: column; gap: 1.2rem; }
+        
         .eval-subcard {
             background: var(--surface-white);
-            border-radius: 18px;
-            padding: 1.6rem 2rem;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
             border: 1px solid var(--border-light);
         }
 
-        .eval-subcard h3 { font-size: 1.2rem; color: var(--primary-green); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
-        .eval-subcard ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; list-style: none; }
-        .eval-subcard ul li { font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; }
-        .eval-subcard ul li::before { content: "•"; color: var(--accent-green); font-size: 1.2rem; position: absolute; left: 0; top: -3px; }
+        .eval-subcard h3 { font-size: 1.15rem; color: var(--primary-green); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .eval-subcard ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 1.5rem; list-style: none; }
+        .eval-subcard ul li { font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.4; }
+        .eval-subcard ul li::before { content: "•"; color: var(--accent-green); font-size: 1.3rem; position: absolute; left: 0; top: -3px; }
 
-        /* STEPS SECTION */
-        .steps-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin: 2rem 0; }
-        .step-box {
-            background-color: var(--primary-green);
-            color: white;
-            border-radius: 16px;
-            padding: 2rem 1.4rem;
+        /* STEPS SECTION (FOTO 2) */
+        .how-it-works-section { padding: 4.5rem 5%; max-width: 1280px; margin: 0 auto; }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin: 3.5rem 0 2.5rem 0;
         }
 
-        .step-num { font-size: 0.85rem; opacity: 0.6; font-weight: 700; margin-bottom: 1rem; text-align: center; }
-        .step-box h3 { font-size: 1.15rem; margin-bottom: 0.8rem; text-align: center; }
-        .step-box p { font-size: 0.85rem; opacity: 0.85; line-height: 1.5; }
+        .step-card-item {
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .step-num-badge {
+            width: 42px;
+            height: 42px;
+            background-color: var(--primary-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin: 0 auto -21px auto;
+            position: relative;
+            z-index: 2;
+            border: 3px solid var(--bg-color);
+        }
+
+        .step-content-box {
+            background-color: var(--card-green);
+            color: white;
+            border-radius: 20px;
+            padding: 2.2rem 1.5rem 2rem 1.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-content-box h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.9rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .step-content-box p {
+            font-size: 0.85rem;
+            opacity: 0.88;
+            line-height: 1.55;
+            text-align: left;
+        }
 
         /* ABOUT SECTION */
         .about-green-shell {
@@ -599,7 +659,8 @@
         }
 
         @media (max-width: 900px) {
-            .hero, .grid-2, .eval-layout, .steps-4, .about-green-shell, .feature-bar, .footer-inner { grid-template-columns: 1fr; }
+            .hero, .grid-2, .eval-layout, .steps-container, .about-green-shell, .feature-bar, .footer-inner { grid-template-columns: 1fr; }
+            .eval-subcard ul { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.3rem; }
             .logo-img { height: 60px; }
             .nav-links { display: none; }
@@ -620,6 +681,7 @@
                 <a href="#inicio">Início</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#quando-buscar-ajuda">Quando buscar ajuda</a>
+                <a href="#como-funciona">Como funciona</a>
                 <a href="#contato">Contato</a>
             </nav>
             <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20um%20atendimento%20com%20o%20Guilherme%20Bueno." onclick="return gtag_report_conversion('https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20um%20atendimento%20com%20o%20Guilherme%20Bueno.');" target="_blank" class="btn-header">
@@ -719,6 +781,100 @@
                     </ul>
                     <a href="https://wa.me/5562999132178" onclick="return gtag_report_conversion('https://wa.me/5562999132178');" target="_blank" class="btn-white">Quero um espaço para falar sobre isso →</a>
                 </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 1: O QUE A AVALIAÇÃO AJUDA A COMPREENDER (EXATAMENTE COMO NA FOTO 1) -->
+        <section class="reveal active">
+            <div class="text-center"><span class="pill-badge">• AVALIAÇÃO NEUROPSICOLÓGICA</span></div>
+            <div class="eval-layout" style="margin-top: 1.5rem;">
+                <div class="eval-cream-card">
+                    <h2 class="serif">O que a avaliação neuropsicológica ajuda a compreender</h2>
+                    <p>Cada pessoa chega com uma história diferente. A avaliação mapeia com precisão o que está acontecendo — e indica o melhor caminho a seguir.</p>
+                    <i class="fa-solid fa-brain brain-bg-icon"></i>
+                </div>
+
+                <div class="eval-right-stack">
+                    <div class="eval-subcard">
+                        <h3 class="serif">👱 Em crianças e adolescentes</h3>
+                        <ul>
+                            <li>Dificuldades de aprendizagem e leitura</li>
+                            <li>Atenção, memória e concentração</li>
+                            <li>Desenvolvimento da linguagem</li>
+                            <li>Comportamento e regulação emocional</li>
+                            <li>Suspeita de TDAH, TEA ou dislexia</li>
+                        </ul>
+                    </div>
+
+                    <div class="eval-subcard">
+                        <h3 class="serif">🧑 Em adultos</h3>
+                        <ul>
+                            <li>Memória e lapsos frequentes</li>
+                            <li>Dificuldade de foco e organização</li>
+                            <li>Planejamento e funções executivas</li>
+                            <li>Regulação emocional e impulsividade</li>
+                            <li>Queda no desempenho profissional</li>
+                        </ul>
+                    </div>
+
+                    <div class="eval-subcard">
+                        <h3 class="serif">🔍 Suspeitas diagnósticas</h3>
+                        <ul>
+                            <li>TDAH (Transtorno de Déficit de Atenção)</li>
+                            <li>TEA (Transtorno do Espectro Autista)</li>
+                            <li>Dislexia e outros transtornos de leitura</li>
+                            <li>Ansiedade de origem cognitiva</li>
+                            <li>Outras condições cognitivas e emocionais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: COMO FUNCIONA A AVALIAÇÃO (EXATAMENTE COMO NA FOTO 2) -->
+        <section id="como-funciona" class="how-it-works-section reveal active">
+            <div class="text-center"><span class="pill-badge">• COMO FUNCIONA</span></div>
+            <h2 class="section-h2 serif" style="margin-top: 1rem;">Como funciona a<br>avaliação neuropsicológica</h2>
+            <p class="section-p" style="margin-bottom: 2rem;">Um processo claro, humano e individualizado — do primeiro contato até a devolutiva.</p>
+
+            <div class="steps-container">
+                <div class="step-card-item">
+                    <div class="step-num-badge">01</div>
+                    <div class="step-content-box">
+                        <h3>Conversa inicial</h3>
+                        <p>Antes de qualquer teste, há uma escuta. Entendemos o histórico, as queixas e o que está preocupando — sem julgamentos e com total sigilo.</p>
+                    </div>
+                </div>
+
+                <div class="step-card-item">
+                    <div class="step-num-badge">02</div>
+                    <div class="step-content-box">
+                        <h3>Sessões de avaliação</h3>
+                        <p>Aplicação de testes neuropsicológicos validados, em ambiente acolhedor. O número de sessões varia conforme a demanda — geralmente entre 8 e 10 encontros, conforme cada caso.</p>
+                    </div>
+                </div>
+
+                <div class="step-card-item">
+                    <div class="step-num-badge">03</div>
+                    <div class="step-content-box">
+                        <h3>Análise e laudo</h3>
+                        <p>Os resultados são analisados com rigor técnico e compilados em um laudo detalhado — com análise dos achados, perfil cognitivo, hipóteses clínicas quando aplicável e orientações concretas.</p>
+                    </div>
+                </div>
+
+                <div class="step-card-item">
+                    <div class="step-num-badge">04</div>
+                    <div class="step-content-box">
+                        <h3>Devolutiva humanizada</h3>
+                        <p>Reunião dedicada para explicar tudo com clareza: o que os resultados significam, o que fazer a partir daqui e quais caminhos podem ser considerados após a avaliação.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação%20neuropsicológica." onclick="return gtag_report_conversion('https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação%20neuropsicológica.');" target="_blank" class="btn-green" style="padding: 1rem 2rem; font-size: 0.95rem;">
+                    Quero agendar minha avaliação →
+                </a>
             </div>
         </section>
 
