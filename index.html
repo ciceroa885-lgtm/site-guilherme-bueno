@@ -464,6 +464,181 @@
             font-size: 0.85rem;
         }
 
+        /* FAQ SECTION (NOVA FOTO 1) */
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .faq-green-card {
+            background-color: var(--card-green);
+            color: white;
+            border-radius: 24px;
+            padding: 3rem 2.2rem;
+            position: relative;
+        }
+
+        .faq-compass-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .faq-green-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .faq-green-card p {
+            font-size: 0.88rem;
+            opacity: 0.88;
+            line-height: 1.6;
+        }
+
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .faq-item {
+            background: var(--surface-white);
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--text-dark);
+        }
+
+        .faq-toggle-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--primary-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle-btn {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem 1.2rem 1.5rem;
+        }
+
+        /* CONVERSATION / CONTACT SECTION (NOVA FOTO 2) */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            margin-top: 2.5rem;
+        }
+
+        .contact-card-box {
+            background: var(--surface-white);
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            border: 1px solid var(--border-light);
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .contact-card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--sage-pill);
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .contact-card-box h3 {
+            font-size: 1.05rem;
+            color: var(--primary-green);
+            margin-bottom: 0.3rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-card-box p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .mosaic-gallery {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .mosaic-gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .mosaic-location-badge {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-light);
+        }
+
         /* LOCATION MAP SECTION */
         .location-section {
             padding: 4rem 5% 2rem 5%;
@@ -659,7 +834,7 @@
         }
 
         @media (max-width: 900px) {
-            .hero, .grid-2, .eval-layout, .steps-container, .about-green-shell, .feature-bar, .footer-inner { grid-template-columns: 1fr; }
+            .hero, .grid-2, .eval-layout, .steps-container, .about-green-shell, .feature-bar, .faq-layout, .contact-layout, .footer-inner { grid-template-columns: 1fr; }
             .eval-subcard ul { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.3rem; }
             .logo-img { height: 60px; }
@@ -682,6 +857,7 @@
                 <a href="#sobre">Sobre</a>
                 <a href="#quando-buscar-ajuda">Quando buscar ajuda</a>
                 <a href="#como-funciona">Como funciona</a>
+                <a href="#duvidas">Dúvidas</a>
                 <a href="#contato">Contato</a>
             </nav>
             <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20um%20atendimento%20com%20o%20Guilherme%20Bueno." onclick="return gtag_report_conversion('https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20um%20atendimento%20com%20o%20Guilherme%20Bueno.');" target="_blank" class="btn-header">
@@ -784,7 +960,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 1: O QUE A AVALIAÇÃO AJUDA A COMPREENDER (EXATAMENTE COMO NA FOTO 1) -->
+        <!-- SEÇÃO: O QUE A AVALIAÇÃO AJUDA A COMPREENDER -->
         <section class="reveal active">
             <div class="text-center"><span class="pill-badge">• AVALIAÇÃO NEUROPSICOLÓGICA</span></div>
             <div class="eval-layout" style="margin-top: 1.5rem;">
@@ -831,7 +1007,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 2: COMO FUNCIONA A AVALIAÇÃO (EXATAMENTE COMO NA FOTO 2) -->
+        <!-- SEÇÃO: COMO FUNCIONA A AVALIAÇÃO -->
         <section id="como-funciona" class="how-it-works-section reveal active">
             <div class="text-center"><span class="pill-badge">• COMO FUNCIONA</span></div>
             <h2 class="section-h2 serif" style="margin-top: 1rem;">Como funciona a<br>avaliação neuropsicológica</h2>
@@ -878,7 +1054,7 @@
             </div>
         </section>
 
-        <!-- SOBRE -->
+        <!-- SOBRE GUILHERME BUENO -->
         <section id="sobre" class="reveal active">
             <div class="text-center"><span class="pill-badge">SOBRE</span></div>
             <h2 class="section-h2 serif" style="margin-top: 1rem; margin-bottom: 2rem;">Sobre Guilherme Bueno</h2>
@@ -916,6 +1092,132 @@
                     <div class="profile-item"><strong>CRP 09/22492</strong><br><small style="opacity:0.7;">Registro profissional</small></div>
                     <div class="profile-item"><strong>Psicólogo clínico</strong><br><small style="opacity:0.7;">Atendimento psicológico</small></div>
                     <div class="profile-item"><strong>Psicanálise</strong><br><small style="opacity:0.7;">Escuta analítica</small></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRIMEIRA FOTO SOLICITADA: DÚVIDAS SOBRE PSICOTERAPIA E AVALIAÇÃO -->
+        <section id="duvidas" class="reveal active">
+            <div class="text-center"><span class="pill-badge">• DÚVIDAS FREQUENTES</span></div>
+            <h2 class="section-h2 serif" style="margin-top: 1rem;">Dúvidas sobre<br>psicoterapia e avaliação</h2>
+            <p class="section-p" style="margin-bottom: 2.5rem;">Algumas dúvidas ajudam a entender melhor as diferenças entre psicoterapia, avaliação neuropsicológica e o caminho mais adequado para cada demanda.</p>
+
+            <div class="faq-layout">
+                <div class="faq-green-card">
+                    <div class="faq-compass-icon"><i class="fa-regular fa-compass"></i></div>
+                    <h3 class="serif">Cada caso tem sua história</h3>
+                    <p>O primeiro contato ajuda a compreender melhor a demanda e entender se o caminho mais indicado é a psicoterapia, a avaliação neuropsicológica ou outra orientação inicial.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            <span>Quando buscar psicoterapia?</span>
+                            <div class="faq-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            A psicoterapia pode ser indicada quando existe sofrimento emocional, ansiedade, tristeza, conflitos nos relacionamentos, sensação de sobrecarga ou desejo de compreender melhor questões que se repetem na vida.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Como funciona o atendimento psicológico?</span>
+                            <div class="faq-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            O atendimento é realizado em sessões regulares (geralmente semanais), oferecendo um espaço de escuta sigiloso e acolhedor para elaborar questões emocionais e comportamentais.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Psicoterapia é só para quem está em crise?</span>
+                            <div class="faq-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            Não. A psicoterapia é um processo contínuo de autoconhecimento e desenvolvimento pessoal, útil tanto para momentos de crise quanto para prevenção e fortalecimento emocional.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Quando buscar uma avaliação neuropsicológica?</span>
+                            <div class="faq-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            É recomendada quando há dúvidas sobre funções cognitivas como atenção, memória, aprendizagem, planejamento ou para investigação de diagnósticos como TDAH e TEA.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Psicoterapia e avaliação neuropsicológica são a mesma coisa?</span>
+                            <div class="faq-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            Não. A psicoterapia é um acompanhamento contínuo de escuta e tratamento emocional, enquanto a avaliação neuropsicológica é um processo investigativo com início, meio e fim (que gera um laudo).
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>O atendimento pode ser online?</span>
+                            <div class="faq-toggle-btn"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            Sim, a psicoterapia pode ser realizada de forma online para adultos e adolescentes conforme a necessidade e viabilidade do caso.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEGUNDA FOTO SOLICITADA: VAMOS CONVERSAR SOBRE O QUE VOCÊ PRECISA? -->
+        <section class="reveal active" style="padding-top: 2rem;">
+            <div class="text-center"><span class="pill-badge">• CONTATO</span></div>
+            <h2 class="section-h2 serif" style="margin-top: 1rem;">Vamos conversar sobre<br>o que você precisa?</h2>
+            <p class="section-p" style="margin-bottom: 2rem;">O primeiro contato ajuda a entender a demanda e orientar o melhor caminho: psicoterapia, avaliação neuropsicológica ou uma conversa inicial sobre os próximos passos.</p>
+
+            <div class="contact-layout">
+                <div>
+                    <div class="contact-card-box">
+                        <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h3>Atendimento presencial</h3>
+                            <p>Consultório localizado no Setor Oeste, em Goiânia, com atendimento para crianças, adolescentes e adultos.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card-box">
+                        <div class="contact-card-icon"><i class="fa-solid fa-laptop"></i></div>
+                        <div>
+                            <h3>Atendimento online</h3>
+                            <p>Modalidade online disponível para acompanhamento psicológico, conforme a necessidade e a possibilidade de cada caso.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card-box">
+                        <div class="contact-card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <h3>Agendamento pelo WhatsApp</h3>
+                            <p>Envie uma mensagem para falar sobre sua demanda e verificar a melhor forma de atendimento.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20um%20atendimento%20com%20o%20Guilherme%20Bueno." onclick="return gtag_report_conversion('https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20um%20atendimento%20com%20o%20Guilherme%20Bueno.');" target="_blank" class="btn-green">
+                            Agendar atendimento →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mosaic-gallery">
+                    <img src="guilherme.webp.webp" alt="Consultório Guilherme Bueno" onerror="this.onerror=null; this.src='guilherme.webp';">
+                    <img src="guilherme.webp.webp" alt="Atendimento Psicológico" onerror="this.onerror=null; this.src='guilherme.webp';">
+                    <div class="mosaic-location-badge">
+                        Goiânia e Região<br><small style="font-weight: 400; opacity: 0.8;">Presencial & Online</small>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1008,6 +1310,24 @@
     <a href="https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20psicólogo%20Guilherme." onclick="return gtag_report_conversion('https://wa.me/5562999132178?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20psicólogo%20Guilherme.');" class="whatsapp-float" target="_blank" aria-label="Falar no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <!-- SCRIPT DA SANFONA DE DÚVIDAS (ACCORDION) -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    child.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
